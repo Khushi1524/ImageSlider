@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image-Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            text-decoration: none;
+        }
+        .head{
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .head h1{
+            font-size: 50px;
+        }
+
+        .container{
+             display: flex;
+             justify-content: center;
+             align-items: center;
+        }
+        .container .imgbx{
+           margin: 30px;
+        }
+        .container .imgbx img{
+            border-radius: 20px;
+            width: 700px;
+            height: 600px;
+        }
+
+        .container .imgbx button{
+            padding: 13px;
+            border-radius: 15px;
+            width: 100px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="head">
+    <h1>Image Slider</h1>
+</div>
+    <div class="container">
+        <div class="imgbx">
+            <button onclick="previous()" id="previous">Previous</button>
+            <img id="slide" src="https://i.pinimg.com/564x/ed/27/08/ed27081957750e93ca3db97aac7751c6.jpg" alt="">
+            <button onclick="next()" id="next">Next</button>
+        </div>
+    </div>
+
+    <script>
+
+           let count =0
+           var arr =['https://i.pinimg.com/564x/56/b8/83/56b883ad2daa03d5403a2705946364f2.jpg','https://i.pinimg.com/564x/56/b8/83/56b883ad2daa03d5403a2705946364f2.jpg',
+                    'https://i.pinimg.com/564x/56/b8/83/56b883ad2daa03d5403a2705946364f2.jpg','https://i.pinimg.com/564x/a7/a7/b2/a7a7b2eb44084418d6e0e749cce0ba5b.jpg',
+                    'https://i.pinimg.com/564x/c1/35/ae/c135ae7a2d8ec431dfd9f88e0dbcb2b8.jpg','https://i.pinimg.com/564x/08/ce/f7/08cef7affd7959b812d7e9ab9b116bdb.jpg']
+           document.getElementById('slide').src = arr[count];
+           function previous(){
+               count--
+               if(count < 0){
+               count = arr.length-1;
+               }
+               document.getElementById('slide').src = arr[count];
+           }  
+
+           function next(){
+               count++
+               if(count > arr.length){
+               count = arr.length-1;
+               }
+               document.getElementById('slide').src = arr[count];
+           } 
+            
+    </script>
+</body>
+</html>
